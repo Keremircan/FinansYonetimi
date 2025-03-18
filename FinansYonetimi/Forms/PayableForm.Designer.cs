@@ -1,6 +1,6 @@
 ﻿namespace FinansYonetimi.Forms
 {
-    partial class ReceivableForm
+    partial class PayableForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            btnRemove = new Button();
             gbxUpdate = new GroupBox();
             lblDescription2 = new Label();
             lblDate2 = new Label();
@@ -49,11 +50,19 @@
             lblAmount = new Label();
             tbxName = new TextBox();
             dgwReceivables = new DataGridView();
-            btnRemove = new Button();
             gbxUpdate.SuspendLayout();
             gbxAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgwReceivables).BeginInit();
             SuspendLayout();
+            // 
+            // btnRemove
+            // 
+            btnRemove.Location = new Point(128, 22);
+            btnRemove.Name = "btnRemove";
+            btnRemove.Size = new Size(124, 29);
+            btnRemove.TabIndex = 14;
+            btnRemove.Text = "Kaldır";
+            btnRemove.UseVisualStyleBackColor = true;
             // 
             // gbxUpdate
             // 
@@ -66,10 +75,10 @@
             gbxUpdate.Controls.Add(btnUpdate);
             gbxUpdate.Controls.Add(tbxAmount2);
             gbxUpdate.Controls.Add(tbxName2);
-            gbxUpdate.Location = new Point(499, 280);
+            gbxUpdate.Location = new Point(499, 279);
             gbxUpdate.Name = "gbxUpdate";
             gbxUpdate.Size = new Size(362, 252);
-            gbxUpdate.TabIndex = 9;
+            gbxUpdate.TabIndex = 13;
             gbxUpdate.TabStop = false;
             gbxUpdate.Text = "Bir alacağı düzenle";
             // 
@@ -131,7 +140,6 @@
             btnUpdate.TabIndex = 0;
             btnUpdate.Text = "Düzenle";
             btnUpdate.UseVisualStyleBackColor = true;
-            btnUpdate.Click += btnUpdate_Click;
             // 
             // tbxAmount2
             // 
@@ -158,10 +166,10 @@
             gbxAdd.Controls.Add(lblName);
             gbxAdd.Controls.Add(lblAmount);
             gbxAdd.Controls.Add(tbxName);
-            gbxAdd.Location = new Point(126, 280);
+            gbxAdd.Location = new Point(126, 279);
             gbxAdd.Name = "gbxAdd";
             gbxAdd.Size = new Size(354, 252);
-            gbxAdd.TabIndex = 8;
+            gbxAdd.TabIndex = 12;
             gbxAdd.TabStop = false;
             gbxAdd.Text = "Bir alacak ekle";
             // 
@@ -205,7 +213,6 @@
             btnAdd.TabIndex = 0;
             btnAdd.Text = "Ekle";
             btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_Click;
             // 
             // tbxAmount
             // 
@@ -247,25 +254,14 @@
             dgwReceivables.AllowUserToResizeRows = false;
             dgwReceivables.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgwReceivables.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgwReceivables.Location = new Point(126, 58);
+            dgwReceivables.Location = new Point(126, 57);
             dgwReceivables.Name = "dgwReceivables";
             dgwReceivables.ReadOnly = true;
             dgwReceivables.RowHeadersWidth = 51;
             dgwReceivables.Size = new Size(735, 216);
-            dgwReceivables.TabIndex = 7;
-            dgwReceivables.CellClick += dgwReceivables_CellClick;
+            dgwReceivables.TabIndex = 11;
             // 
-            // btnRemove
-            // 
-            btnRemove.Location = new Point(128, 23);
-            btnRemove.Name = "btnRemove";
-            btnRemove.Size = new Size(124, 29);
-            btnRemove.TabIndex = 10;
-            btnRemove.Text = "Kaldır";
-            btnRemove.UseVisualStyleBackColor = true;
-            btnRemove.Click += btnRemove_Click;
-            // 
-            // ReceivableForm
+            // PayableForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -274,9 +270,8 @@
             Controls.Add(gbxUpdate);
             Controls.Add(gbxAdd);
             Controls.Add(dgwReceivables);
-            Name = "ReceivableForm";
-            Text = "Alınacaklar";
-            Load += ReceivableForm_Load_1;
+            Name = "PayableForm";
+            Text = "Verilecekler";
             gbxUpdate.ResumeLayout(false);
             gbxUpdate.PerformLayout();
             gbxAdd.ResumeLayout(false);
@@ -287,6 +282,7 @@
 
         #endregion
 
+        private Button btnRemove;
         private GroupBox gbxUpdate;
         private Label lblDescription2;
         private Label lblDate2;
@@ -308,6 +304,5 @@
         private Label lblAmount;
         private TextBox tbxName;
         private DataGridView dgwReceivables;
-        private Button btnRemove;
     }
 }
