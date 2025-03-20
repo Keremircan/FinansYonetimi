@@ -33,7 +33,17 @@ namespace FinansYonetimi.Forms
                 dgwPayables.DataSource = result;
             }
         }
+        public DateTime? ConvertToDateTime(string dateString)
+        {
+            DateTime? dateValue = null;
 
+            if (DateTime.TryParse(dateString, out DateTime parsedDate))
+            {
+                dateValue = parsedDate;
+            }
+
+            return dateValue;
+        }
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(tbxName.Text) || string.IsNullOrWhiteSpace(tbxAmount.Text) || string.IsNullOrWhiteSpace(cbxCurrency.Text))
@@ -47,13 +57,8 @@ namespace FinansYonetimi.Forms
                 return;
             }
 
-            DateTime? dateValue = null;  // Nullable DateTime
+            var dateValue = ConvertToDateTime(tbxDate.Text);
 
-            // Tarih girişini kontrol et
-            if (DateTime.TryParse(tbxDate.Text, out DateTime parsedDate))
-            {
-                dateValue = parsedDate;
-            }
             try
             {
                 _payableDal.Add(new Payable
@@ -92,11 +97,7 @@ namespace FinansYonetimi.Forms
                 return;
             }
 
-            DateTime? dateValue = null;
-            if (DateTime.TryParse(tbxDate2.Text, out DateTime parsedDate))
-            {
-                dateValue = parsedDate;
-            }
+            var dateValue = ConvertToDateTime(tbxDate2.Text);
 
             try
             {
@@ -132,20 +133,26 @@ namespace FinansYonetimi.Forms
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            _payableDal.Delete(new Payable
+            var dialogResult = MessageBox.Show("Emin misiniz? Bu işlem geri alınamaz.", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (dialogResult == DialogResult.Yes)
             {
-                No = Convert.ToInt32(dgwPayables.CurrentRow.Cells[0].Value),
-                Isim = dgwPayables.CurrentRow.Cells[1].Value.ToString(),
-                Miktar = Convert.ToDecimal(dgwPayables.CurrentRow.Cells[2].Value),
-                ParaBirimi = dgwPayables.CurrentRow.Cells[3].Value.ToString()
-            });
-            tbxName2.Text = "";
-            tbxAmount2.Text = "";
-            cbxCurrency2.Text = "";
-            tbxDate2.Text = "";
-            tbxDescription2.Text = "";
-            LoadPayable();
-            MessageBox.Show("Silindi!");
+                _payableDal.Delete(new Payable
+                {
+                    No = Convert.ToInt32(dgwPayables.CurrentRow.Cells[0].Value),
+                    Isim = dgwPayables.CurrentRow.Cells[1].Value.ToString(),
+                    Miktar = Convert.ToDecimal(dgwPayables.CurrentRow.Cells[2].Value),
+                    ParaBirimi = dgwPayables.CurrentRow.Cells[3].Value.ToString()
+                });
+                tbxName2.Text = "";
+                tbxAmount2.Text = "";
+                cbxCurrency2.Text = "";
+                tbxDate2.Text = "";
+                tbxDescription2.Text = "";
+                LoadPayable();
+                MessageBox.Show("Başarıyla Silindi!");
+            }
+            
         }
 
         private void tbxSearch_TextChanged(object sender, EventArgs e)

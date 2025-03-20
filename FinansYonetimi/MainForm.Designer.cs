@@ -40,9 +40,14 @@ namespace FinansYonetimi
             button1 = new Button();
             lblTitle = new Label();
             panelDesktop = new Panel();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
+            label2 = new Label();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             panelTitleBar.SuspendLayout();
+            panelDesktop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panelMenu
@@ -162,11 +167,45 @@ namespace FinansYonetimi
             // 
             // panelDesktop
             // 
+            panelDesktop.Controls.Add(label2);
+            panelDesktop.Controls.Add(label1);
+            panelDesktop.Controls.Add(pictureBox1);
             panelDesktop.Dock = DockStyle.Fill;
             panelDesktop.Location = new Point(220, 80);
             panelDesktop.Name = "panelDesktop";
             panelDesktop.Size = new Size(992, 619);
             panelDesktop.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.None;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(348, 93);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(285, 74);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            label1.Location = new Point(285, 197);
+            label1.Name = "label1";
+            label1.Size = new Size(407, 37);
+            label1.TabIndex = 1;
+            label1.Text = "Finans Yönetim Uygulamasına ";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+            label2.Location = new Point(409, 261);
+            label2.Name = "label2";
+            label2.Size = new Size(162, 41);
+            label2.TabIndex = 2;
+            label2.Text = "Hoşgeldin";
             // 
             // MainForm
             // 
@@ -183,6 +222,9 @@ namespace FinansYonetimi
             panelLogo.PerformLayout();
             panelTitleBar.ResumeLayout(false);
             panelTitleBar.PerformLayout();
+            panelDesktop.ResumeLayout(false);
+            panelDesktop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -199,5 +241,8 @@ namespace FinansYonetimi
         private Label lblLogo;
         private Panel panelDesktop;
         private Button button1;
+        private PictureBox pictureBox1;
+        private Label label2;
+        private Label label1;
     }
 }

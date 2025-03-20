@@ -117,7 +117,7 @@
             // lblDescription2
             // 
             lblDescription2.AutoSize = true;
-            lblDescription2.Location = new Point(56, 145);
+            lblDescription2.Location = new Point(46, 145);
             lblDescription2.Name = "lblDescription2";
             lblDescription2.Size = new Size(70, 20);
             lblDescription2.TabIndex = 13;
@@ -135,16 +135,16 @@
             // lblDate2
             // 
             lblDate2.AutoSize = true;
-            lblDate2.Location = new Point(56, 108);
+            lblDate2.Location = new Point(46, 110);
             lblDate2.Name = "lblDate2";
-            lblDate2.Size = new Size(88, 20);
+            lblDate2.Size = new Size(98, 20);
             lblDate2.TabIndex = 12;
-            lblDate2.Text = "Kesim Tarihi";
+            lblDate2.Text = "Kesim Tarihi *";
             // 
             // lblAmount2
             // 
             lblAmount2.AutoSize = true;
-            lblAmount2.Location = new Point(56, 72);
+            lblAmount2.Location = new Point(46, 75);
             lblAmount2.Name = "lblAmount2";
             lblAmount2.Size = new Size(61, 20);
             lblAmount2.TabIndex = 11;
@@ -153,7 +153,7 @@
             // lblName2
             // 
             lblName2.AutoSize = true;
-            lblName2.Location = new Point(56, 39);
+            lblName2.Location = new Point(46, 40);
             lblName2.Name = "lblName2";
             lblName2.Size = new Size(59, 20);
             lblName2.TabIndex = 10;
@@ -221,7 +221,7 @@
             // lblDescription
             // 
             lblDescription.AutoSize = true;
-            lblDescription.Location = new Point(56, 145);
+            lblDescription.Location = new Point(46, 145);
             lblDescription.Name = "lblDescription";
             lblDescription.Size = new Size(70, 20);
             lblDescription.TabIndex = 8;
@@ -246,11 +246,11 @@
             // lblDate
             // 
             lblDate.AutoSize = true;
-            lblDate.Location = new Point(56, 108);
+            lblDate.Location = new Point(46, 110);
             lblDate.Name = "lblDate";
-            lblDate.Size = new Size(88, 20);
+            lblDate.Size = new Size(98, 20);
             lblDate.TabIndex = 6;
-            lblDate.Text = "Kesim Tarihi";
+            lblDate.Text = "Kesim Tarihi *";
             // 
             // btnAdd
             // 
@@ -272,7 +272,7 @@
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(56, 39);
+            lblName.Location = new Point(46, 40);
             lblName.Name = "lblName";
             lblName.Size = new Size(59, 20);
             lblName.TabIndex = 2;
@@ -281,7 +281,7 @@
             // lblAmount
             // 
             lblAmount.AutoSize = true;
-            lblAmount.Location = new Point(56, 72);
+            lblAmount.Location = new Point(46, 75);
             lblAmount.Name = "lblAmount";
             lblAmount.Size = new Size(61, 20);
             lblAmount.TabIndex = 4;
