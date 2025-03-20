@@ -31,17 +31,17 @@
             btnRemove = new Button();
             gbxUpdate = new GroupBox();
             lblDescription2 = new Label();
+            tbxDescription2 = new RichTextBox();
             lblDate2 = new Label();
             lblAmount2 = new Label();
             lblName2 = new Label();
-            tbxDescription2 = new TextBox();
             tbxDate2 = new TextBox();
             btnUpdate = new Button();
             tbxAmount2 = new TextBox();
             tbxName2 = new TextBox();
             gbxAdd = new GroupBox();
-            tbxDescription = new TextBox();
             lblDescription = new Label();
+            tbxDescription = new RichTextBox();
             tbxDate = new TextBox();
             lblDate = new Label();
             btnAdd = new Button();
@@ -49,17 +49,17 @@
             lblName = new Label();
             lblAmount = new Label();
             tbxName = new TextBox();
-            dgwReceivables = new DataGridView();
+            dgwPayables = new DataGridView();
             gbxUpdate.SuspendLayout();
             gbxAdd.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgwReceivables).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgwPayables).BeginInit();
             SuspendLayout();
             // 
             // btnRemove
             // 
-            btnRemove.Location = new Point(128, 22);
+            btnRemove.Location = new Point(59, 16);
             btnRemove.Name = "btnRemove";
-            btnRemove.Size = new Size(124, 29);
+            btnRemove.Size = new Size(143, 40);
             btnRemove.TabIndex = 14;
             btnRemove.Text = "Kaldır";
             btnRemove.UseVisualStyleBackColor = true;
@@ -67,20 +67,20 @@
             // gbxUpdate
             // 
             gbxUpdate.Controls.Add(lblDescription2);
+            gbxUpdate.Controls.Add(tbxDescription2);
             gbxUpdate.Controls.Add(lblDate2);
             gbxUpdate.Controls.Add(lblAmount2);
             gbxUpdate.Controls.Add(lblName2);
-            gbxUpdate.Controls.Add(tbxDescription2);
             gbxUpdate.Controls.Add(tbxDate2);
             gbxUpdate.Controls.Add(btnUpdate);
             gbxUpdate.Controls.Add(tbxAmount2);
             gbxUpdate.Controls.Add(tbxName2);
-            gbxUpdate.Location = new Point(499, 279);
+            gbxUpdate.Location = new Point(489, 312);
             gbxUpdate.Name = "gbxUpdate";
-            gbxUpdate.Size = new Size(362, 252);
+            gbxUpdate.Size = new Size(450, 252);
             gbxUpdate.TabIndex = 13;
             gbxUpdate.TabStop = false;
-            gbxUpdate.Text = "Bir alacağı düzenle";
+            gbxUpdate.Text = "DÜZENLE";
             // 
             // lblDescription2
             // 
@@ -90,6 +90,15 @@
             lblDescription2.Size = new Size(70, 20);
             lblDescription2.TabIndex = 13;
             lblDescription2.Text = "Açıklama";
+            // 
+            // tbxDescription2
+            // 
+            tbxDescription2.Location = new Point(144, 138);
+            tbxDescription2.Name = "tbxDescription2";
+            tbxDescription2.ScrollBars = RichTextBoxScrollBars.Vertical;
+            tbxDescription2.Size = new Size(196, 60);
+            tbxDescription2.TabIndex = 11;
+            tbxDescription2.Text = "";
             // 
             // lblDate2
             // 
@@ -118,13 +127,6 @@
             lblName2.TabIndex = 10;
             lblName2.Text = "İsim";
             // 
-            // tbxDescription2
-            // 
-            tbxDescription2.Location = new Point(144, 138);
-            tbxDescription2.Name = "tbxDescription2";
-            tbxDescription2.Size = new Size(196, 27);
-            tbxDescription2.TabIndex = 9;
-            // 
             // tbxDate2
             // 
             tbxDate2.Location = new Point(144, 105);
@@ -134,7 +136,7 @@
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(144, 187);
+            btnUpdate.Location = new Point(144, 208);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(196, 29);
             btnUpdate.TabIndex = 0;
@@ -157,8 +159,8 @@
             // 
             // gbxAdd
             // 
-            gbxAdd.Controls.Add(tbxDescription);
             gbxAdd.Controls.Add(lblDescription);
+            gbxAdd.Controls.Add(tbxDescription);
             gbxAdd.Controls.Add(tbxDate);
             gbxAdd.Controls.Add(lblDate);
             gbxAdd.Controls.Add(btnAdd);
@@ -166,19 +168,12 @@
             gbxAdd.Controls.Add(lblName);
             gbxAdd.Controls.Add(lblAmount);
             gbxAdd.Controls.Add(tbxName);
-            gbxAdd.Location = new Point(126, 279);
+            gbxAdd.Location = new Point(39, 312);
             gbxAdd.Name = "gbxAdd";
-            gbxAdd.Size = new Size(354, 252);
+            gbxAdd.Size = new Size(450, 252);
             gbxAdd.TabIndex = 12;
             gbxAdd.TabStop = false;
-            gbxAdd.Text = "Bir alacak ekle";
-            // 
-            // tbxDescription
-            // 
-            tbxDescription.Location = new Point(144, 138);
-            tbxDescription.Name = "tbxDescription";
-            tbxDescription.Size = new Size(196, 27);
-            tbxDescription.TabIndex = 9;
+            gbxAdd.Text = "EKLE";
             // 
             // lblDescription
             // 
@@ -188,6 +183,15 @@
             lblDescription.Size = new Size(70, 20);
             lblDescription.TabIndex = 8;
             lblDescription.Text = "Açıklama";
+            // 
+            // tbxDescription
+            // 
+            tbxDescription.Location = new Point(144, 138);
+            tbxDescription.Name = "tbxDescription";
+            tbxDescription.ScrollBars = RichTextBoxScrollBars.Vertical;
+            tbxDescription.Size = new Size(196, 60);
+            tbxDescription.TabIndex = 11;
+            tbxDescription.Text = "";
             // 
             // tbxDate
             // 
@@ -207,7 +211,7 @@
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(144, 187);
+            btnAdd.Location = new Point(144, 208);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(196, 29);
             btnAdd.TabIndex = 0;
@@ -246,37 +250,37 @@
             tbxName.Size = new Size(196, 27);
             tbxName.TabIndex = 3;
             // 
-            // dgwReceivables
+            // dgwPayables
             // 
-            dgwReceivables.AllowUserToAddRows = false;
-            dgwReceivables.AllowUserToDeleteRows = false;
-            dgwReceivables.AllowUserToResizeColumns = false;
-            dgwReceivables.AllowUserToResizeRows = false;
-            dgwReceivables.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgwReceivables.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgwReceivables.Location = new Point(126, 57);
-            dgwReceivables.Name = "dgwReceivables";
-            dgwReceivables.ReadOnly = true;
-            dgwReceivables.RowHeadersWidth = 51;
-            dgwReceivables.Size = new Size(735, 216);
-            dgwReceivables.TabIndex = 11;
+            dgwPayables.AllowUserToAddRows = false;
+            dgwPayables.AllowUserToDeleteRows = false;
+            dgwPayables.AllowUserToResizeColumns = false;
+            dgwPayables.AllowUserToResizeRows = false;
+            dgwPayables.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgwPayables.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgwPayables.Location = new Point(39, 72);
+            dgwPayables.Name = "dgwPayables";
+            dgwPayables.ReadOnly = true;
+            dgwPayables.RowHeadersWidth = 51;
+            dgwPayables.Size = new Size(900, 216);
+            dgwPayables.TabIndex = 11;
             // 
             // PayableForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(982, 553);
+            ClientSize = new Size(974, 572);
             Controls.Add(btnRemove);
             Controls.Add(gbxUpdate);
             Controls.Add(gbxAdd);
-            Controls.Add(dgwReceivables);
+            Controls.Add(dgwPayables);
             Name = "PayableForm";
             Text = "Verilecekler";
             gbxUpdate.ResumeLayout(false);
             gbxUpdate.PerformLayout();
             gbxAdd.ResumeLayout(false);
             gbxAdd.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgwReceivables).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgwPayables).EndInit();
             ResumeLayout(false);
         }
 
@@ -285,17 +289,17 @@
         private Button btnRemove;
         private GroupBox gbxUpdate;
         private Label lblDescription2;
+        private RichTextBox tbxDescription2;
         private Label lblDate2;
         private Label lblAmount2;
         private Label lblName2;
-        private TextBox tbxDescription2;
         private TextBox tbxDate2;
         private Button btnUpdate;
         private TextBox tbxAmount2;
         private TextBox tbxName2;
         private GroupBox gbxAdd;
-        private TextBox tbxDescription;
         private Label lblDescription;
+        private RichTextBox tbxDescription;
         private TextBox tbxDate;
         private Label lblDate;
         private Button btnAdd;
@@ -303,6 +307,6 @@
         private Label lblName;
         private Label lblAmount;
         private TextBox tbxName;
-        private DataGridView dgwReceivables;
+        private DataGridView dgwPayables;
     }
 }

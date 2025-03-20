@@ -5,16 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace FinansYonetimi
+namespace FinansYonetimi.Dal
 {
     internal class ReceivableDal
     {
-        public List<Receivable> GetAll() 
+        public List<Receivable> GetAll()
         {
-            using (var _context = new FYContext()) {
+            using (var _context = new FYContext())
+            {
                 return _context.Receivables.ToList();
             }
-        } 
+        }
+        public List<Receivable> GetByName(string key)
+        {
+            using (var _context = new FYContext())
+            {
+                return _context.Receivables.Where(r=>r.Name.Contains(key)).ToList();
+            }
+        }
         public void Add(Receivable receivable)
         {
             using (var _context = new FYContext())

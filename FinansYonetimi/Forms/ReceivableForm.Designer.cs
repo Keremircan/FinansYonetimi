@@ -29,18 +29,20 @@
         private void InitializeComponent()
         {
             gbxUpdate = new GroupBox();
+            cbxCurrency2 = new ComboBox();
             lblDescription2 = new Label();
+            tbxDescription2 = new RichTextBox();
             lblDate2 = new Label();
             lblAmount2 = new Label();
             lblName2 = new Label();
-            tbxDescription2 = new TextBox();
             tbxDate2 = new TextBox();
             btnUpdate = new Button();
             tbxAmount2 = new TextBox();
             tbxName2 = new TextBox();
             gbxAdd = new GroupBox();
-            tbxDescription = new TextBox();
+            cbxCurrency = new ComboBox();
             lblDescription = new Label();
+            tbxDescription = new RichTextBox();
             tbxDate = new TextBox();
             lblDate = new Label();
             btnAdd = new Button();
@@ -50,6 +52,8 @@
             tbxName = new TextBox();
             dgwReceivables = new DataGridView();
             btnRemove = new Button();
+            tbxSearch = new TextBox();
+            lblSearch = new Label();
             gbxUpdate.SuspendLayout();
             gbxAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgwReceivables).BeginInit();
@@ -57,21 +61,31 @@
             // 
             // gbxUpdate
             // 
+            gbxUpdate.Controls.Add(cbxCurrency2);
             gbxUpdate.Controls.Add(lblDescription2);
+            gbxUpdate.Controls.Add(tbxDescription2);
             gbxUpdate.Controls.Add(lblDate2);
             gbxUpdate.Controls.Add(lblAmount2);
             gbxUpdate.Controls.Add(lblName2);
-            gbxUpdate.Controls.Add(tbxDescription2);
             gbxUpdate.Controls.Add(tbxDate2);
             gbxUpdate.Controls.Add(btnUpdate);
             gbxUpdate.Controls.Add(tbxAmount2);
             gbxUpdate.Controls.Add(tbxName2);
-            gbxUpdate.Location = new Point(499, 280);
+            gbxUpdate.Location = new Point(490, 310);
             gbxUpdate.Name = "gbxUpdate";
-            gbxUpdate.Size = new Size(362, 252);
+            gbxUpdate.Size = new Size(450, 252);
             gbxUpdate.TabIndex = 9;
             gbxUpdate.TabStop = false;
-            gbxUpdate.Text = "Bir alacağı düzenle";
+            gbxUpdate.Text = "DÜZENLE";
+            // 
+            // cbxCurrency2
+            // 
+            cbxCurrency2.FormattingEnabled = true;
+            cbxCurrency2.Items.AddRange(new object[] { "TL", "Dolar", "Euro" });
+            cbxCurrency2.Location = new Point(277, 72);
+            cbxCurrency2.Name = "cbxCurrency2";
+            cbxCurrency2.Size = new Size(63, 28);
+            cbxCurrency2.TabIndex = 12;
             // 
             // lblDescription2
             // 
@@ -81,6 +95,15 @@
             lblDescription2.Size = new Size(70, 20);
             lblDescription2.TabIndex = 13;
             lblDescription2.Text = "Açıklama";
+            // 
+            // tbxDescription2
+            // 
+            tbxDescription2.Location = new Point(144, 138);
+            tbxDescription2.Name = "tbxDescription2";
+            tbxDescription2.ScrollBars = RichTextBoxScrollBars.Vertical;
+            tbxDescription2.Size = new Size(196, 60);
+            tbxDescription2.TabIndex = 11;
+            tbxDescription2.Text = "";
             // 
             // lblDate2
             // 
@@ -96,25 +119,18 @@
             lblAmount2.AutoSize = true;
             lblAmount2.Location = new Point(56, 75);
             lblAmount2.Name = "lblAmount2";
-            lblAmount2.Size = new Size(51, 20);
+            lblAmount2.Size = new Size(61, 20);
             lblAmount2.TabIndex = 11;
-            lblAmount2.Text = "Miktar";
+            lblAmount2.Text = "Miktar *";
             // 
             // lblName2
             // 
             lblName2.AutoSize = true;
             lblName2.Location = new Point(56, 39);
             lblName2.Name = "lblName2";
-            lblName2.Size = new Size(36, 20);
+            lblName2.Size = new Size(46, 20);
             lblName2.TabIndex = 10;
-            lblName2.Text = "İsim";
-            // 
-            // tbxDescription2
-            // 
-            tbxDescription2.Location = new Point(144, 138);
-            tbxDescription2.Name = "tbxDescription2";
-            tbxDescription2.Size = new Size(196, 27);
-            tbxDescription2.TabIndex = 9;
+            lblName2.Text = "İsim *";
             // 
             // tbxDate2
             // 
@@ -125,7 +141,7 @@
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(144, 187);
+            btnUpdate.Location = new Point(144, 208);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(196, 29);
             btnUpdate.TabIndex = 0;
@@ -137,7 +153,7 @@
             // 
             tbxAmount2.Location = new Point(144, 72);
             tbxAmount2.Name = "tbxAmount2";
-            tbxAmount2.Size = new Size(196, 27);
+            tbxAmount2.Size = new Size(127, 27);
             tbxAmount2.TabIndex = 5;
             // 
             // tbxName2
@@ -149,8 +165,9 @@
             // 
             // gbxAdd
             // 
-            gbxAdd.Controls.Add(tbxDescription);
+            gbxAdd.Controls.Add(cbxCurrency);
             gbxAdd.Controls.Add(lblDescription);
+            gbxAdd.Controls.Add(tbxDescription);
             gbxAdd.Controls.Add(tbxDate);
             gbxAdd.Controls.Add(lblDate);
             gbxAdd.Controls.Add(btnAdd);
@@ -158,19 +175,21 @@
             gbxAdd.Controls.Add(lblName);
             gbxAdd.Controls.Add(lblAmount);
             gbxAdd.Controls.Add(tbxName);
-            gbxAdd.Location = new Point(126, 280);
+            gbxAdd.Location = new Point(40, 310);
             gbxAdd.Name = "gbxAdd";
-            gbxAdd.Size = new Size(354, 252);
+            gbxAdd.Size = new Size(450, 252);
             gbxAdd.TabIndex = 8;
             gbxAdd.TabStop = false;
-            gbxAdd.Text = "Bir alacak ekle";
+            gbxAdd.Text = "EKLE";
             // 
-            // tbxDescription
+            // cbxCurrency
             // 
-            tbxDescription.Location = new Point(144, 138);
-            tbxDescription.Name = "tbxDescription";
-            tbxDescription.Size = new Size(196, 27);
-            tbxDescription.TabIndex = 9;
+            cbxCurrency.FormattingEnabled = true;
+            cbxCurrency.Items.AddRange(new object[] { "TL", "Dolar", "Euro" });
+            cbxCurrency.Location = new Point(277, 72);
+            cbxCurrency.Name = "cbxCurrency";
+            cbxCurrency.Size = new Size(63, 28);
+            cbxCurrency.TabIndex = 12;
             // 
             // lblDescription
             // 
@@ -180,6 +199,15 @@
             lblDescription.Size = new Size(70, 20);
             lblDescription.TabIndex = 8;
             lblDescription.Text = "Açıklama";
+            // 
+            // tbxDescription
+            // 
+            tbxDescription.Location = new Point(144, 138);
+            tbxDescription.Name = "tbxDescription";
+            tbxDescription.ScrollBars = RichTextBoxScrollBars.Vertical;
+            tbxDescription.Size = new Size(196, 60);
+            tbxDescription.TabIndex = 11;
+            tbxDescription.Text = "";
             // 
             // tbxDate
             // 
@@ -199,7 +227,7 @@
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(144, 187);
+            btnAdd.Location = new Point(144, 208);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(196, 29);
             btnAdd.TabIndex = 0;
@@ -211,7 +239,7 @@
             // 
             tbxAmount.Location = new Point(144, 72);
             tbxAmount.Name = "tbxAmount";
-            tbxAmount.Size = new Size(196, 27);
+            tbxAmount.Size = new Size(127, 27);
             tbxAmount.TabIndex = 5;
             // 
             // lblName
@@ -219,18 +247,18 @@
             lblName.AutoSize = true;
             lblName.Location = new Point(56, 39);
             lblName.Name = "lblName";
-            lblName.Size = new Size(36, 20);
+            lblName.Size = new Size(46, 20);
             lblName.TabIndex = 2;
-            lblName.Text = "İsim";
+            lblName.Text = "İsim *";
             // 
             // lblAmount
             // 
             lblAmount.AutoSize = true;
             lblAmount.Location = new Point(56, 72);
             lblAmount.Name = "lblAmount";
-            lblAmount.Size = new Size(51, 20);
+            lblAmount.Size = new Size(61, 20);
             lblAmount.TabIndex = 4;
-            lblAmount.Text = "Miktar";
+            lblAmount.Text = "Miktar *";
             // 
             // tbxName
             // 
@@ -247,29 +275,48 @@
             dgwReceivables.AllowUserToResizeRows = false;
             dgwReceivables.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgwReceivables.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgwReceivables.Location = new Point(126, 58);
+            dgwReceivables.Location = new Point(40, 70);
             dgwReceivables.Name = "dgwReceivables";
             dgwReceivables.ReadOnly = true;
             dgwReceivables.RowHeadersWidth = 51;
-            dgwReceivables.Size = new Size(735, 216);
+            dgwReceivables.Size = new Size(900, 216);
             dgwReceivables.TabIndex = 7;
             dgwReceivables.CellClick += dgwReceivables_CellClick;
             // 
             // btnRemove
             // 
-            btnRemove.Location = new Point(128, 23);
+            btnRemove.Location = new Point(60, 14);
             btnRemove.Name = "btnRemove";
-            btnRemove.Size = new Size(124, 29);
+            btnRemove.Size = new Size(143, 40);
             btnRemove.TabIndex = 10;
             btnRemove.Text = "Kaldır";
             btnRemove.UseVisualStyleBackColor = true;
             btnRemove.Click += btnRemove_Click;
             // 
+            // tbxSearch
+            // 
+            tbxSearch.Location = new Point(746, 27);
+            tbxSearch.Name = "tbxSearch";
+            tbxSearch.Size = new Size(174, 27);
+            tbxSearch.TabIndex = 11;
+            tbxSearch.TextChanged += tbxSearch_TextChanged;
+            // 
+            // lblSearch
+            // 
+            lblSearch.AutoSize = true;
+            lblSearch.Location = new Point(691, 30);
+            lblSearch.Name = "lblSearch";
+            lblSearch.Size = new Size(39, 20);
+            lblSearch.TabIndex = 12;
+            lblSearch.Text = "Ara :";
+            // 
             // ReceivableForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(982, 553);
+            ClientSize = new Size(974, 572);
+            Controls.Add(lblSearch);
+            Controls.Add(tbxSearch);
             Controls.Add(btnRemove);
             Controls.Add(gbxUpdate);
             Controls.Add(gbxAdd);
@@ -283,6 +330,7 @@
             gbxAdd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgwReceivables).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -292,13 +340,11 @@
         private Label lblDate2;
         private Label lblAmount2;
         private Label lblName2;
-        private TextBox tbxDescription2;
         private TextBox tbxDate2;
         private Button btnUpdate;
         private TextBox tbxAmount2;
         private TextBox tbxName2;
         private GroupBox gbxAdd;
-        private TextBox tbxDescription;
         private Label lblDescription;
         private TextBox tbxDate;
         private Label lblDate;
@@ -309,5 +355,11 @@
         private TextBox tbxName;
         private DataGridView dgwReceivables;
         private Button btnRemove;
+        private RichTextBox tbxDescription;
+        private RichTextBox tbxDescription2;
+        private TextBox tbxSearch;
+        private Label lblSearch;
+        private ComboBox cbxCurrency;
+        private ComboBox cbxCurrency2;
     }
 }

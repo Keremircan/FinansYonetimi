@@ -141,9 +141,9 @@ namespace FinansYonetimi
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.Location = new Point(6, 12);
+            button1.Location = new Point(18, 21);
             button1.Name = "button1";
-            button1.Size = new Size(44, 45);
+            button1.Size = new Size(42, 46);
             button1.TabIndex = 1;
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
@@ -177,7 +177,7 @@ namespace FinansYonetimi
             Controls.Add(panelTitleBar);
             Controls.Add(panelMenu);
             Name = "MainForm";
-            Text = "Form1";
+            Text = "MainForm";
             panelMenu.ResumeLayout(false);
             panelLogo.ResumeLayout(false);
             panelLogo.PerformLayout();
