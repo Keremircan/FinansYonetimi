@@ -30,6 +30,7 @@
         {
             btnRemove = new Button();
             gbxUpdate = new GroupBox();
+            cbxCurrency2 = new ComboBox();
             lblDescription2 = new Label();
             tbxDescription2 = new RichTextBox();
             lblDate2 = new Label();
@@ -40,6 +41,7 @@
             tbxAmount2 = new TextBox();
             tbxName2 = new TextBox();
             gbxAdd = new GroupBox();
+            cbxCurrency = new ComboBox();
             lblDescription = new Label();
             tbxDescription = new RichTextBox();
             tbxDate = new TextBox();
@@ -50,6 +52,8 @@
             lblAmount = new Label();
             tbxName = new TextBox();
             dgwPayables = new DataGridView();
+            lblSearch = new Label();
+            tbxSearch = new TextBox();
             gbxUpdate.SuspendLayout();
             gbxAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgwPayables).BeginInit();
@@ -63,9 +67,11 @@
             btnRemove.TabIndex = 14;
             btnRemove.Text = "Kaldır";
             btnRemove.UseVisualStyleBackColor = true;
+            btnRemove.Click += btnRemove_Click;
             // 
             // gbxUpdate
             // 
+            gbxUpdate.Controls.Add(cbxCurrency2);
             gbxUpdate.Controls.Add(lblDescription2);
             gbxUpdate.Controls.Add(tbxDescription2);
             gbxUpdate.Controls.Add(lblDate2);
@@ -81,6 +87,15 @@
             gbxUpdate.TabIndex = 13;
             gbxUpdate.TabStop = false;
             gbxUpdate.Text = "DÜZENLE";
+            // 
+            // cbxCurrency2
+            // 
+            cbxCurrency2.FormattingEnabled = true;
+            cbxCurrency2.Items.AddRange(new object[] { "TL", "Dolar", "Euro" });
+            cbxCurrency2.Location = new Point(277, 72);
+            cbxCurrency2.Name = "cbxCurrency2";
+            cbxCurrency2.Size = new Size(63, 28);
+            cbxCurrency2.TabIndex = 14;
             // 
             // lblDescription2
             // 
@@ -142,12 +157,13 @@
             btnUpdate.TabIndex = 0;
             btnUpdate.Text = "Düzenle";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // tbxAmount2
             // 
             tbxAmount2.Location = new Point(144, 72);
             tbxAmount2.Name = "tbxAmount2";
-            tbxAmount2.Size = new Size(196, 27);
+            tbxAmount2.Size = new Size(127, 27);
             tbxAmount2.TabIndex = 5;
             // 
             // tbxName2
@@ -159,6 +175,7 @@
             // 
             // gbxAdd
             // 
+            gbxAdd.Controls.Add(cbxCurrency);
             gbxAdd.Controls.Add(lblDescription);
             gbxAdd.Controls.Add(tbxDescription);
             gbxAdd.Controls.Add(tbxDate);
@@ -174,6 +191,15 @@
             gbxAdd.TabIndex = 12;
             gbxAdd.TabStop = false;
             gbxAdd.Text = "EKLE";
+            // 
+            // cbxCurrency
+            // 
+            cbxCurrency.FormattingEnabled = true;
+            cbxCurrency.Items.AddRange(new object[] { "TL", "Dolar", "Euro" });
+            cbxCurrency.Location = new Point(277, 71);
+            cbxCurrency.Name = "cbxCurrency";
+            cbxCurrency.Size = new Size(63, 28);
+            cbxCurrency.TabIndex = 13;
             // 
             // lblDescription
             // 
@@ -217,12 +243,13 @@
             btnAdd.TabIndex = 0;
             btnAdd.Text = "Ekle";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // tbxAmount
             // 
             tbxAmount.Location = new Point(144, 72);
             tbxAmount.Name = "tbxAmount";
-            tbxAmount.Size = new Size(196, 27);
+            tbxAmount.Size = new Size(127, 27);
             tbxAmount.TabIndex = 5;
             // 
             // lblName
@@ -264,24 +291,46 @@
             dgwPayables.RowHeadersWidth = 51;
             dgwPayables.Size = new Size(900, 216);
             dgwPayables.TabIndex = 11;
+            dgwPayables.CellClick += dgwPayables_CellClick;
+            // 
+            // lblSearch
+            // 
+            lblSearch.AutoSize = true;
+            lblSearch.Location = new Point(691, 30);
+            lblSearch.Name = "lblSearch";
+            lblSearch.Size = new Size(39, 20);
+            lblSearch.TabIndex = 16;
+            lblSearch.Text = "Ara :";
+            // 
+            // tbxSearch
+            // 
+            tbxSearch.Location = new Point(746, 27);
+            tbxSearch.Name = "tbxSearch";
+            tbxSearch.Size = new Size(174, 27);
+            tbxSearch.TabIndex = 15;
+            tbxSearch.TextChanged += tbxSearch_TextChanged;
             // 
             // PayableForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(974, 572);
+            Controls.Add(lblSearch);
+            Controls.Add(tbxSearch);
             Controls.Add(btnRemove);
             Controls.Add(gbxUpdate);
             Controls.Add(gbxAdd);
             Controls.Add(dgwPayables);
             Name = "PayableForm";
             Text = "Verilecekler";
+            Load += PayableForm_Load;
             gbxUpdate.ResumeLayout(false);
             gbxUpdate.PerformLayout();
             gbxAdd.ResumeLayout(false);
             gbxAdd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgwPayables).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -308,5 +357,9 @@
         private Label lblAmount;
         private TextBox tbxName;
         private DataGridView dgwPayables;
+        private ComboBox cbxCurrency;
+        private ComboBox cbxCurrency2;
+        private Label lblSearch;
+        private TextBox tbxSearch;
     }
 }

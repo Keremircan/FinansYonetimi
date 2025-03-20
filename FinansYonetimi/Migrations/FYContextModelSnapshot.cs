@@ -22,32 +22,62 @@ namespace FinansYonetimi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("FinansYonetimi.Receivable", b =>
+            modelBuilder.Entity("FinansYonetimi.Model.Payable", b =>
                 {
-                    b.Property<int>("RID")
+                    b.Property<int>("No")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("No"));
 
-                    b.Property<decimal>("Amount")
+                    b.Property<string>("Aciklama")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Isim")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Miktar")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Currency")
+                    b.Property<string>("ParaBirimi")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("Date")
+                    b.Property<DateTime?>("Tarih")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Description")
+                    b.HasKey("No");
+
+                    b.ToTable("Payables");
+                });
+
+            modelBuilder.Entity("FinansYonetimi.Model.Receivable", b =>
+                {
+                    b.Property<int>("No")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("No"));
+
+                    b.Property<string>("Aciklama")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Isim")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("RID");
+                    b.Property<decimal>("Miktar")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ParaBirimi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Tarih")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("No");
 
                     b.ToTable("Receivables");
                 });

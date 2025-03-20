@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinansYonetimi.Migrations
 {
     [DbContext(typeof(FYContext))]
-    [Migration("20250320083029_Second Migration")]
-    partial class SecondMigration
+    [Migration("20250320104605_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,37 @@ namespace FinansYonetimi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("FinansYonetimi.Receivable", b =>
+            modelBuilder.Entity("FinansYonetimi.Model.Payable", b =>
+                {
+                    b.Property<int>("No")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("No"));
+
+                    b.Property<string>("Aciklama")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Isim")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Miktar")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ParaBirimi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Tarih")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("No");
+
+                    b.ToTable("Payables");
+                });
+
+            modelBuilder.Entity("FinansYonetimi.Model.Receivable", b =>
                 {
                     b.Property<int>("No")
                         .ValueGeneratedOnAdd()

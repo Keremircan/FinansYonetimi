@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using FinansYonetimi.Dal;
+using FinansYonetimi.Model;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace FinansYonetimi.Forms
@@ -58,11 +59,11 @@ namespace FinansYonetimi.Forms
             {
                 _receivableDal.Add(new Receivable
                 {
-                    Name = tbxName.Text.Trim(),
-                    Amount = Convert.ToDecimal(tbxAmount.Text),
-                    Currency = cbxCurrency.Text,
-                    Date = dateValue,
-                    Description = tbxDescription.Text.Trim()
+                    Isim = tbxName.Text.Trim(),
+                    Miktar = Convert.ToDecimal(tbxAmount.Text),
+                    ParaBirimi = cbxCurrency.Text,
+                    Tarih = dateValue,
+                    Aciklama = tbxDescription.Text.Trim()
                 });
                 tbxName.Text = "";
                 tbxAmount.Text = "";
@@ -102,12 +103,12 @@ namespace FinansYonetimi.Forms
             {
                 _receivableDal.Update(new Receivable
                 {
-                    RID = Convert.ToInt32(dgwReceivables.CurrentRow.Cells[0].Value),
-                    Name = tbxName2.Text.Trim(),
-                    Amount = Convert.ToDecimal(tbxAmount2.Text),
-                    Currency = cbxCurrency2.Text,
-                    Date = dateValue,
-                    Description = tbxDescription2.Text.Trim()
+                    No = Convert.ToInt32(dgwReceivables.CurrentRow.Cells[0].Value),
+                    Isim = tbxName2.Text.Trim(),
+                    Miktar = Convert.ToDecimal(tbxAmount2.Text),
+                    ParaBirimi = cbxCurrency2.Text,
+                    Tarih = dateValue,
+                    Aciklama = tbxDescription2.Text.Trim()
                 });
                 LoadReceivable();
                 MessageBox.Show("Başarıyla Güncellendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -129,20 +130,22 @@ namespace FinansYonetimi.Forms
                 tbxDate2.Text = dgwReceivables.CurrentRow.Cells[4].Value is DateTime date ? date.ToString("dd-MM-yyyy") : "";
                 tbxDescription2.Text = dgwReceivables.CurrentRow.Cells[5].Value?.ToString() ?? "";
             }
-
-
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
 
             _receivableDal.Delete(new Receivable
-            { RID = Convert.ToInt32(dgwReceivables.CurrentRow.Cells[0].Value),
-                Name = dgwReceivables.CurrentRow.Cells[1].Value.ToString(),
-                Amount = Convert.ToDecimal(dgwReceivables.CurrentRow.Cells[2].Value),
-                Currency = dgwReceivables.CurrentRow.Cells[3].Value.ToString()
-            }); 
-                
+            { No = Convert.ToInt32(dgwReceivables.CurrentRow.Cells[0].Value),
+                Isim = dgwReceivables.CurrentRow.Cells[1].Value.ToString(),
+                Miktar = Convert.ToDecimal(dgwReceivables.CurrentRow.Cells[2].Value),
+                ParaBirimi = dgwReceivables.CurrentRow.Cells[3].Value.ToString()
+            });
+            tbxName2.Text = "";
+            tbxAmount2.Text = "";
+            cbxCurrency2.Text = "";
+            tbxDate2.Text = "";
+            tbxDescription2.Text = "";
             LoadReceivable();
             MessageBox.Show("Silindi!");
         }

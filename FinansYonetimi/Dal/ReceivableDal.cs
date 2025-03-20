@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FinansYonetimi.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace FinansYonetimi.Dal
@@ -20,7 +21,7 @@ namespace FinansYonetimi.Dal
         {
             using (var _context = new FYContext())
             {
-                return _context.Receivables.Where(r=>r.Name.Contains(key)).ToList();
+                return _context.Receivables.Where(r=>r.Isim.Contains(key)).ToList();
             }
         }
         public void Add(Receivable receivable)
