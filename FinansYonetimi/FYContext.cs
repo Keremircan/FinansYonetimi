@@ -12,6 +12,7 @@ namespace FinansYonetimi
     {
         public DbSet<Receivable> Receivables { get; set; }
         public DbSet<Payable> Payables { get; set; }
+        public DbSet<Billing> Billings { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=DESKTOP-KS9G7QU\\SQLEXPRESS;Initial Catalog=FyDatabase;Integrated Security=True;Pooling=False;Encrypt=False;Trust Server Certificate=True");

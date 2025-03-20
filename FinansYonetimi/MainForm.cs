@@ -64,7 +64,7 @@ namespace FinansYonetimi
         }
         private void btnBilling_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.BillingForm(), sender);
         }
 
         private void button1_Click(object sender, EventArgs e)
